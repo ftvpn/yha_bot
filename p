@@ -1,3 +1,4 @@
+#!/bin/bash
 apt update -y
 apt install sudo -y
 sudo apt-get clean all
