@@ -18,7 +18,7 @@ echo "
 #!/bin/bash
 cd /usr/bin/
 python3.8 backend 0.0.0.0 meki
-" >> panelbot
+" >> /usr/bin/panelbot
 chmod +x /usr/bin/panelbot
 cat >/etc/systemd/system/backend.service << EOF
 [Unit]
