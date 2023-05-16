@@ -4,7 +4,7 @@ import subprocess, random, re,sys
 try:
 	import speedtest
 except:
-	os.system("pip3 install speedtest-cli")
+	os.system("pip3.8 install speedtest-cli")
 std = subprocess.PIPE
 app = Flask(__name__)
 auth = sys.argv[2]
