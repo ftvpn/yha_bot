@@ -1,8 +1,12 @@
 #!/bin/bash
 apt update;
-apt-get install python3 -y;
-apt-get install python3-pip -y;
-pip3 install flask
+pip3.8 install --upgrade pip
+pip3.8 install hypercorn==0.14.3
+pip3.8 install flask==2.3.2
+pip3.8 install asgiref==3.6.0
+pip3.8 install telethon==1.28.5
+pip3.8 install requests==2.28.1
+pip3.8 install speedtest-cli
 
 
 cd /usr/bin/
@@ -10,6 +14,12 @@ wget -q https://github.com/ftvpn/yha_bot/raw/main/api/ft-api
 mv ft-api backend
 chmod +x backend
 
+echo "
+#!/bin/bash
+cd /usr/bin/
+python3.8 backend 0.0.0.0 meki
+" >> panelbot
+chmod +x /usr/bin/panelbot
 cat >/etc/systemd/system/backend.service << EOF
 [Unit]
 Description=My Project
@@ -17,7 +27,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/root
-ExecStart=/usr/bin/python3 /usr/bin/backend 0.0.0.0 meki
+ExecStart=/usr/bin/panelbot
 Restart=always
 
 [Install]
